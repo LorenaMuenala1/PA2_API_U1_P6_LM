@@ -2,7 +2,6 @@ package uce.edu.api.bodega;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.ApplicationPath;
 
 @ApplicationScoped
 public class NotificadorSelector {
@@ -11,14 +10,17 @@ public class NotificadorSelector {
     private NotificadorMail notificadorMail;    
     @Inject 
     private NotificadorSMS notificadorSMS;
+    @Inject
+    private NotificadorWhatsapp notificadorWhatsapp;
 
-    public Notificador seleccionarNotificador(Double total) {
-        if (total > 100) {
-            return new NotificadorSMS();
-        } else {
-            return new NotificadorMail();
-        }
-        
+   public Notificador seleccionarNotificador(Double total) {
+    if (total > 120) {
+        return notificadorMail;
+    } else if (total < 50) {
+        return notificadorWhatsapp;
+    } else {
+        return notificadorSMS;
     }
-
 }
+}
+ 

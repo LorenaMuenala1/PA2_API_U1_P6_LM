@@ -1,19 +1,16 @@
 package uce.edu.api.bodega;
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class PedidoService {
-
-    // DI inyectado por constructor
+     // DI inyectado por constructor
     /*private NotificadorMail notificadorMail;
 
     @Inject
     public PedidoService(NotificadorMail notificadorMail) {
         this.notificadorMail = notificadorMail;
     }*/
-
 
     // DI inyectado por ATRIBUTO
     /*@Inject
@@ -28,9 +25,8 @@ public class PedidoService {
         this.notificadorMail = notificadorMail;
     }*/
 
-        @Inject
+    @Inject
     private NotificadorSelector notificadorSelector;
-
 
     public void registar(Pedido pedido) {
         System.out.println("Registrando pedido");
@@ -47,4 +43,5 @@ public class PedidoService {
 
         notificador.enviar(pedido.getDestino(), "Se ha creado un pedido para ser atendido");
     }
+
 }

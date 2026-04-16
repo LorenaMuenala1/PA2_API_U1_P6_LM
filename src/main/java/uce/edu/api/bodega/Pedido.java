@@ -1,17 +1,19 @@
 package uce.edu.api.bodega;
 
 public class Pedido {
-    private String cliente;
+   private String cliente;
     private String producto;
+    private String telefono;
     private double total;
     private String destino;
  
     public Pedido() {
-       
     }
-        public Pedido(String cliente, String producto, double total, String correo) {
+   
+    public Pedido(String cliente, String producto, String telefono, double total, String correo) {
         this.cliente = cliente;
         this.producto = producto;
+        this.telefono = telefono;
         this.total = total;
         this.destino = correo;
     }
@@ -48,7 +50,11 @@ public class Pedido {
         this.destino = correo;
     }
  
-
+    public String getTelefono() {
+        return telefono;
+    }
  
-
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 }
