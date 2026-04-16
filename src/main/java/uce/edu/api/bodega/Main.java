@@ -19,15 +19,17 @@ public class Main {
          * MODELO IoC
          * DI
          * 
-         * @Inject
-         * private PedidoService service;
+         
          */
 
         // Lookup
 
+        @Inject
+        private PedidoService service;
+
         @Override
         public int run(String... args) throws Exception {
-            
+
             PedidoService service = CDI.current().select(PedidoService.class).get();
 
             // pedido CASO 1
