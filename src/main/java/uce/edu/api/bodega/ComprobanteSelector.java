@@ -5,7 +5,6 @@ import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class ComprobanteSelector {
-
     @Inject
     private ComprobantePDF comprobantePDF;
     @Inject

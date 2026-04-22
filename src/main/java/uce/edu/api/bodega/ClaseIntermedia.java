@@ -15,8 +15,6 @@ public class ClaseIntermedia {
     @Inject
     private AmbitoSingleton ambitoSingleton;
 
-
-
     public void imprimirObjetoValor(){
         
         System.out.println(this.ambitoAplicacion);
