@@ -20,6 +20,12 @@ public class Main {
         @Inject
         private EstadisticasVentasGlobales estadisticasGlobales;
 
+        @Inject
+        private ProcesadorVentaService1 procesadorVentaService1;
+
+        @Inject
+        private ProcesadorVentaEnLinea procesadorVentaEnLinea;
+
         @Override
         public int run(String... args) throws Exception {
 
@@ -31,6 +37,18 @@ public class Main {
 
             Venta v3 = new Venta("Kim Namjoon", 198.0);
             this.procesadorVentaService.procesar(v3);
+
+
+            Venta v4 = new Venta("Min Yoongi", 198.0);
+            this.procesadorVentaService1.procesar(v4);
+
+            Venta v5 = new Venta("Min Yoongi", 198.0);
+            this.procesadorVentaService1.procesar(v5);
+
+            Venta v6 = new Venta("Jeon Jungkook", 1986.0);
+            this.procesadorVentaEnLinea.procesar(v6);
+
+
             this.estadisticasGlobales.mostrarEstadisticasGlobales();
 
             return 0;

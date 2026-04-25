@@ -4,10 +4,9 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 
-@ApplicationScoped
-public class ProcesadorVentaService {
-
-    //Aqui como inyecto tracking venta se crea un objeto 
+@Dependent
+public class ProcesadorVentaService1 {
+     //Aqui como inyecto tracking venta se crea un objeto 
     @Inject
     private TrackingVenta tracking;
 
@@ -37,5 +36,6 @@ public class ProcesadorVentaService {
         this.estadisticasGlobales.registrarPedido(venta.getTotal());
 
     }
+
 
 }
