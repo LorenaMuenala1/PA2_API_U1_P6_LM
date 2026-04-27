@@ -1,81 +1,46 @@
-# quarkus-getting-started
+# TAREA 3 : Ámbitos y Contextos 
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+En el contexto de CDI (Contexts and Dependency Injection), los ámbitos (scopes) definen el ciclo de vida de los beans, es decir, cuánto tiempo existen y cómo se comparten dentro de la aplicación.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+Ámbito: Tiempo que vive el bean/objeto en todo el sistema
+Contexto: Entorno en el que existe y es gestionado por el contenedor
 
-## Running the application in dev mode
+## @ApplicationScoped
+Se usa para servicios que implementan lógica de negocio que debe vivir durante toda la aplicación. El mismmo bean vive durante toda la aplicación.
 
-You can run your application in dev mode that enables live coding using:
-
-```shell script
-./mvnw quarkus:dev
-```
-
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
-
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
-```
-
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/quarkus-getting-started-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- Hibernate ORM ([guide](https://quarkus.io/guides/hibernate-orm)): Define your persistent model with Hibernate ORM and Jakarta Persistence
-- RESTEasy Classic JSON-B ([guide](https://quarkus.io/guides/rest-json)): JSON-B serialization support for RESTEasy Classic
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-- RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing Jakarta REST and more
-- SmallRye JWT ([guide](https://quarkus.io/guides/security-jwt)): Secure your applications with JSON Web Token
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
-
-## Provided Code
-
-### Hibernate ORM
-
-Create your first JPA entity
-
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
+Ejemplos:
+- Servicio de conciertos (Manejar lista de eventos disponibles)
+- Motor de recomendaciones (Sugerir productos/contenido según comportamiento del usuario)
+- Matrículas estudiantiles (Gestionar la inscripción de cada estudiantes en materias)
+- Cálculo de impuestos (Aplica reglas fiscales a todas las transacciones)
+- Gestor de inventario (Controlar el stock global de los productos de una empresa)
+- Sistema de votaciones (Llevar el conteo total de votos)
+- Administrador de reservas (Gestionar disponibilidad de habitaciones o asientos)
 
 
-[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
+## @Singleton
+Similar al ApplicationScoped, el mismo bean durante toda la aplicación, sim embargo, se usa para lógica utilitaria del negocio.
+
+Ejemplos:
+- Formateador de fechas 
+- Generador de códigos únicos
+- Utilidad de encriptación
+- Validador de formatos
+- Generador de documentos PDFs
+- Helper de logs
+- Envío de correos, notificaciones
 
 
-### RESTEasy JAX-RS
+## @Dependent
+Se usa para servicios que implementan lógica de negocio, se crea una nueva instancia cada vez que se inyecta.
+No tiene un ciclo de vida propio: vive y muere con el bean que lo inyecta.
 
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+Ejemplos:
+- Transferencia bancaria (Cada transferencia es única de cada usuario)
+- Producto en carrito (Cada item es independiente)
+- Ubicación capturada (Cada lectura GPS es distinta)
+- Error de validación (Se crea según cada fallo)
+- Motor de Cotización de Seguros (Cotización por cada cliente)
+- Ubicación GPS capturada (Cada lectura de ubicación representa un dato independiente en un momento específico)
+- Solicitud de reembolso (Cada solicitud tiene datos propios según la compra y el motivo)
+- Comprobante de pago (Se genera un comprobante diferente por cada transacción realizada)
