@@ -6,7 +6,7 @@ En el contexto de CDI (Contexts and Dependency Injection), los ámbitos (scopes)
 Contexto: Entorno en el que existe y es gestionado por el contenedor
 
 ## @ApplicationScoped
-Se usa para servicios que implementan lógica de negocio que debe vivir durante toda la aplicación. El mismmo bean vive durante toda la aplicación.
+Se usa para servicios que implementan lógica de negocio que debe vivir durante toda la aplicación. El mismo bean vive durante toda la aplicación.
 
 Ejemplos:
 - Servicio de conciertos (Manejar lista de eventos disponibles)
@@ -19,7 +19,7 @@ Ejemplos:
 
 
 ## @Singleton
-Similar al ApplicationScoped, el mismo bean durante toda la aplicación, sim embargo, se usa para lógica utilitaria del negocio.
+Similar al ApplicationScoped, el mismo bean durante toda la aplicación, sin embargo, se usa para lógica utilitaria del negocio.
 
 Ejemplos:
 - Formateador de fechas 
@@ -41,6 +41,5 @@ Ejemplos:
 - Ubicación capturada (Cada lectura GPS es distinta)
 - Error de validación (Se crea según cada fallo)
 - Motor de Cotización de Seguros (Cotización por cada cliente)
-- Ubicación GPS capturada (Cada lectura de ubicación representa un dato independiente en un momento específico)
 - Solicitud de reembolso (Cada solicitud tiene datos propios según la compra y el motivo)
 - Comprobante de pago (Se genera un comprobante diferente por cada transacción realizada)
