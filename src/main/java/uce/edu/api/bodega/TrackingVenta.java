@@ -3,7 +3,7 @@ package uce.edu.api.bodega;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Dependent;
 
-@ApplicationScoped
+@Dependent
 public class TrackingVenta {
 
     private long tiempoInicio = 0;

@@ -1,8 +1,8 @@
 package uce.edu.api.bodega;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
+
 
 @ApplicationScoped
 public class ProcesadorVentaService {
