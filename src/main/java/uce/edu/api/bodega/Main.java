@@ -28,11 +28,12 @@ public class Main {
             Venta v1 = new Venta("Park Jimin", 150.0);
             this.procesadorTiempo.procesar(v1);
             //Venta v2 = new Venta("Park Jimin", 150.0);
-            this.procesadorTiempo.reProcesar(v1);
+            //this.procesadorTiempo.reProcesar(v1);
 
+            /*System.out.println("Registrando el pedido en el inventario...");
 
             Pedido p1 = new Pedido("Park Jimin", "Bodega", "0999999999", 150.0,"jimin@gmial.com");
-            this.inventarioService.RegistrarInventario(p1);
+            this.inventarioService.RegistrarInventario(p1);*/
 
         
             return 0;
