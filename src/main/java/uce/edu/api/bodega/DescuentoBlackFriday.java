@@ -1,8 +1,11 @@
 package uce.edu.api.bodega;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.annotation.Priority;
+
 
 @ApplicationScoped
+@Priority(4) 
 public class DescuentoBlackFriday implements Descuento {
 
     @Override
