@@ -1,7 +1,7 @@
 package uce.edu.api.bodega;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.annotation.Priority;
+import jakarta.enterprise.context.ApplicationScoped;
 
 
 @ApplicationScoped
